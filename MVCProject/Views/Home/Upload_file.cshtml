@@ -1,0 +1,18 @@
+﻿@using System.Security.Claims
+
+@{
+    ViewBag.Title = "Upload_file";
+}
+
+<h2>JSON File Upload</h2>  
+@using (Html.BeginForm ("Upload_file",  
+                        "Home",  
+                        FormMethod.Post,  
+                        new { enctype = "multipart/form-data" }))  
+{                    
+    <label for="file">Upload:</label>  
+    <input type="file" name="file" id="file"/><br><br>  
+    <input type="submit" value="Upload file"/>  
+    <br><br>  
+    @ViewBag.Message  
+}

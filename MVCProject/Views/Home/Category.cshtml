@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Category";
+}
+
+<br/>
+
+Your BMI is: @ViewBag.bmi <br/>
+
+@{ 
+    if (ViewBag.bmi < 18.5)
+    {
+        WriteLiteral("You have Underweight");
+        ViewBag.underweight++;
+    }
+    else if (ViewBag.bmi <= 24.9)
+    {
+        WriteLiteral("You have Normal weight");
+        ViewBag.normal++;
+                }
+    else if (ViewBag.bmi <= 29.9)
+    {
+        WriteLiteral("You have pre-obesity");
+        ViewBag.preobesity++;
+                }
+    else
+    {
+        WriteLiteral("You have Obesity class I");
+        ViewBag.obesity++;
+                }
+}
+<br/>
+<br/>
+<table class="table table-hover table-striped table-condensed">
+    <tr>
+        <th>BMI Category</th>
+        <th>Patient count</th>
+    </tr>
+        <tr>
+            <td>Underweight</td>
+            <td>@ViewBag.underweight</td>
+        </tr>
+    <tr>
+            <td>Normal Weight</td>
+            <td>@ViewBag.normal</td>
+        </tr>
+    <tr>
+            <td>Pre-obesity</td>
+            <td>@ViewBag.preobesity</td>
+        </tr>
+    <tr>
+            <td>Obesity class I</td>
+            <td>@ViewBag.obesity</td>
+        </tr>
+</table>
+<br/>
+You have the @ViewBag.percentile % percentil of the total.
